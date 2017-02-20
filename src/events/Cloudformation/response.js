@@ -35,7 +35,7 @@ class Response {
       headers: {
         'content-type': '',
         'content-length': parsed.length,
-      }
+      },
     };
     return new Promise((resolve, reject) => {
       request(payload, (err, resp, body) => {
