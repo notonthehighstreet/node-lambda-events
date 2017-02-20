@@ -7,4 +7,4 @@ jest
 coverage
 .webpack
 .idea
-index.js
+/index.js
