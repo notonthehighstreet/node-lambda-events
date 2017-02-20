@@ -1,5 +1,5 @@
 {
-  "name": "lambda-events",
+  "name": "node-lambda-events",
   "description": "TODO",
   "version": "0.0.1",
   "main": "dist/",
