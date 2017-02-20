@@ -1,8 +1,8 @@
 {
   "name": "node-lambda-events",
-  "description": "TODO",
+  "description": "Lambda event, request and response handling library",
   "version": "0.0.1",
-  "main": "dist/",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/notonthehighstreet/node-lambda-events"
@@ -51,7 +51,7 @@
     "sinon": "~1.17"
   },
   "scripts": {
-    "build": "rm -rf dist && babel ./src -d dist",
+    "build": "rm -rf dist && babel ./src --out-file index.js",
     "prepublish": "npm run build",
     "start:watch": "NODE_ENV=development nodemon ./babel-register",
     "test": "NODE_ENV=test jest __tests__/.+/*.test.js --coverage --notify",
