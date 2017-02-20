@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2016 David Kelley
+Copyright (c) 2016 Not on the High Street Enterprises Ltd.
 
 The following license applies to all parts of this software except as
 documented below:
