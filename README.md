@@ -4,7 +4,7 @@
 [![License][license-badge]][license-url]
 [![Gitter][gitter-badge]][gitter-url]
 [![Issue Count][issues-badge]][issues-url]
-[![Inline docs][docs-badge]](docs-url)
+[![Inline docs][docs-badge]][docs-url]
 
 [![Known Vulnerabilities][snyk-badge]][snyk-url]
 [![Build Status][travis-badge]][travis-url]
@@ -19,8 +19,6 @@ See below for the supported events.
 ### Cloudformation
 
 Provides a simple interface for working with [Custom Cloudformation Resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) events.
-
-See: [Docs]()
 
 ```javascript
 import uuidV4 from 'uuid/v4';
