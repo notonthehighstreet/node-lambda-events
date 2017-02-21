@@ -65,6 +65,6 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "license:check": "license-checker --production --json > LIBS.json",
-    "doc": "jsdoc -r src/ -c jsdoc.json -d docs -u examples --debug"
+    "doc": "rm -rf docs && jsdoc -r src/ -c jsdoc.json -d docs -u examples"
   }
 }

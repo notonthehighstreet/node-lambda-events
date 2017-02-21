@@ -4,13 +4,13 @@
 [![License][license-badge]][license-url]
 [![Gitter][gitter-badge]][gitter-url]
 [![Issue Count][issues-badge]][issues-url]
-[![Inline docs][docs-badge]][docs-url]
 
 [![Known Vulnerabilities][snyk-badge]][snyk-url]
 [![Build Status][travis-badge]][travis-url]
 [![Coverage Status][coverage-badge]][coverage-url]
 [![Code Climate][codeclimate-badge]][codeclimate-url]
 [![Dependency Status][david-badge]][david-url]
+[![Inline docs][docs-badge]][docs-url]
 
 Provides classes that ease the integration of receiving, handling and responding to AWS Lambda Events.
 
