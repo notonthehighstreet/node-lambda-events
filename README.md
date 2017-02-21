@@ -45,6 +45,12 @@ class UUIDGenerator extends Cloudformation {
 export default Cloudformation.wrap(UUIDGenerator);
 ```
 
+## Development
+
+A handy [Dockerfile](/Dockerfile.development) and [docker-compose.yml](/docker-compose.yml) are provided to let you get easily setup for developing with the project.
+
+Run `docker-compose build` to build and install project dependencies. The entrypoint for the resulting development container is `npm run`, allowing you to easily run any of the scripts defined inside [package.json](/package.json).
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/notonthehighstreet/node-lambda-events. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.

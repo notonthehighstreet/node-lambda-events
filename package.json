@@ -1,7 +1,7 @@
 {
   "name": "node-lambda-events",
   "description": "Lambda event, request and response handling library",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -61,8 +61,8 @@
     "build:watch": "npm run build -- --watch",
     "prepublish": "npm run build",
     "start:watch": "NODE_ENV=development nodemon ./babel-register",
-    "test": "NODE_ENV=test jest __tests__/.+/*.test.js --coverage --notify",
-    "test:watch": "npm run test -- --reporter min --watch",
+    "test": "NODE_ENV=test jest __tests__/.+/*.test.js --coverage",
+    "test:watch": "npm run test -- --reporter min --watch --notify",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "license:check": "license-checker --production --json > docs/licenses.json",

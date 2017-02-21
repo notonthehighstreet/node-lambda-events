@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  src:
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    command: build
+    volumes:
+      - .:/app
+      # - node_modules:/app/node_modules
+
+# volumes:
+#   node_modules:
