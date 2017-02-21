@@ -8,3 +8,4 @@ coverage
 .webpack
 .idea
 /index.js
+docs

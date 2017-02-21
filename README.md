@@ -4,6 +4,7 @@
 [![License][license-badge]][license-url]
 [![Gitter][gitter-badge]][gitter-url]
 [![Issue Count][issues-badge]][issues-url]
+[![Inline docs][docs-badge]](docs-url)
 
 [![Known Vulnerabilities][snyk-badge]][snyk-url]
 [![Build Status][travis-badge]][travis-url]
@@ -11,12 +12,45 @@
 [![Code Climate][codeclimate-badge]][codeclimate-url]
 [![Dependency Status][david-badge]][david-url]
 
+Provides classes that ease the integration of receiving, handling and responding to AWS Lambda Events.
+
+See below for the supported events.
+
+### Cloudformation
+
+Provides a simple interface for working with [Custom Cloudformation Resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) events.
+
+See: [Docs]()
+
+```javascript
+import uuidV4 from 'uuid/v4';
+import { Cloudformation, OK, ERROR } from 'node-lambda-events';
+
+class UUIDGenerator extends Cloudformation {
+  create() {
+    const id = uuidV4();
+    const data = { foo: 'bar' };
+    this.response.respond(OK, { id, data });
+  }
+
+  update() {
+    this.create();
+  }
+
+  delete() {
+    this.response.respond(OK, { id: this.id });
+  }
+}
+
+export default Cloudformation.wrap(UUIDGenerator);
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/notonthehighstreet/node-lambda-events. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
- 
+
 The project is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 [gitter-badge]: http://img.shields.io/badge/gitter-chat-red.svg
@@ -25,6 +59,8 @@ The project is available as open source under the terms of the [MIT License](htt
 [github-url]: https://github.com/notonthehighstreet/node-lambda-events
 [license-badge]: http://img.shields.io/badge/license-MIT-yellowgreen.svg
 [license-url]: #license
+[docs-badge]: http://inch-ci.org/github/notonthehighstreet/node-lambda-events.svg?branch=master
+[docs-url]: http://inch-ci.org/github/notonthehighstreet/node-lambda-events
 [snyk-badge]: https://snyk.io/test/github/notonthehighstreet/node-lambda-events/badge.svg
 [snyk-url]: https://snyk.io/test/github/notonthehighstreet/node-lambda-events
 [david-badge]: https://david-dm.org/notonthehighstreet/node-lambda-events.svg

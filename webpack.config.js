@@ -4,13 +4,11 @@ module.exports = {
   ],
   output: {
     filename: "index.js",
-    // path: __dirname + "/dist",
-    // filename: "dist/index.js",
     libraryTarget: "umd",
-    library: "LambdaEvents"
+    library: "LambdaEvents",
   },
   externals: [
-    /^[a-z\-0-9]+$/
+    /^[a-z\-0-9]+$/,
   ],
   target: 'node',
   module: {
@@ -21,8 +19,8 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['es2015'],
-          plugins: ['transform-runtime']
-        }
+          plugins: ['transform-runtime'],
+        },
       },
       {
         test: /\.json$/,
