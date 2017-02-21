@@ -6,6 +6,7 @@
 [![Gitter][gitter-badge]][gitter-url]
 [![Issue Count][issues-badge]][issues-url]
 
+[![npm version][npm-badge]][npm-url]
 [![Known Vulnerabilities][snyk-badge]][snyk-url]
 [![Build Status][travis-badge]][travis-url]
 [![Coverage Status][coverage-badge]][coverage-url]
@@ -52,6 +53,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/notont
 
 The project is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+[npm-badge]: https://badge.fury.io/js/node-lambda-events.svg
+[npm-url]: https://badge.fury.io/js/node-lambda-events
 [gitter-badge]: http://img.shields.io/badge/gitter-chat-red.svg
 [gitter-url]: https://gitter.im/notonthehighstreet/node-lambda-events
 [github-badge]: https://img.shields.io/badge/github-link-blue.svg
