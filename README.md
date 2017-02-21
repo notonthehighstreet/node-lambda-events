@@ -1,6 +1,7 @@
 # Lambda Events
 
 [![GitHub][github-badge]][github-url]
+[![Documentation][hosted-docs-badge]][hosted-docs-url]
 [![License][license-badge]][license-url]
 [![Gitter][gitter-badge]][gitter-url]
 [![Issue Count][issues-badge]][issues-url]
@@ -59,6 +60,8 @@ The project is available as open source under the terms of the [MIT License](htt
 [license-url]: #license
 [docs-badge]: http://inch-ci.org/github/notonthehighstreet/node-lambda-events.svg?branch=master
 [docs-url]: http://inch-ci.org/github/notonthehighstreet/node-lambda-events
+[hosted-docs-badge]: http://img.shields.io/badge/docs-github.io-blue.svg
+[hosted-docs-url]: https://notonthehighstreet.github.io/node-lambda-events
 [snyk-badge]: https://snyk.io/test/github/notonthehighstreet/node-lambda-events/badge.svg
 [snyk-url]: https://snyk.io/test/github/notonthehighstreet/node-lambda-events
 [david-badge]: https://david-dm.org/notonthehighstreet/node-lambda-events.svg

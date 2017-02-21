@@ -17,6 +17,7 @@
   "pre-commit": [
     "lint",
     "test",
+    "doc",
     "license:check"
   ],
   "dependencies": {
@@ -64,7 +65,7 @@
     "test:watch": "npm run test -- --reporter min --watch",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
-    "license:check": "license-checker --production --json > LIBS.json",
+    "license:check": "license-checker --production --json > docs/licenses.json",
     "doc": "rm -rf docs && jsdoc -r src/ -c jsdoc.json -d docs -u examples"
   }
 }
