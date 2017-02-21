@@ -1,13 +1,17 @@
 module.exports = {
   entry: [
-    'babel-polyfill',
     './src/index.js',
   ],
   output: {
     filename: "index.js",
+    // path: __dirname + "/dist",
+    // filename: "dist/index.js",
     libraryTarget: "umd",
     library: "LambdaEvents"
   },
+  externals: [
+    /^[a-z\-0-9]+$/
+  ],
   target: 'node',
   module: {
     loaders: [

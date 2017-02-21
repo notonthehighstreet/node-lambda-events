@@ -1,7 +1,5 @@
 import Cloudformation from './events/Cloudformation';
 
-const LambdaEvents = {
+export {
   Cloudformation,
 };
-
-export default LambdaEvents;

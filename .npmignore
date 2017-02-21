@@ -1,0 +1,15 @@
+node_modules
+__tests__
+.github
+src
+.babelrc
+.codeclimate.yml
+.eslintrc
+.travis.yml
+babel-register.js
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+nodemon.json
+README.md
+webpack.config.js
