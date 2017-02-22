@@ -1,6 +1,6 @@
 'use strict';
 
-import Cloudformation, { Response, wrap } from '../../../src/events/Cloudformation';
+import Cloudformation, { Response } from '../../../src/events/Cloudformation';
 
 const event = {
   RequestType: "Update",
@@ -52,18 +52,3 @@ describe('Cloudformation', () => {
     })
   });
 });
-
-describe('#wrap', () => {
-  const performer = jest.fn();
-
-  class TestCloudformation extends Cloudformation {
-    perform(fn, ...args) {
-      return fn(...args);
-    }
-  }
-
-  test('it calls perform', () => {
-    wrap(TestCloudformation, performer, 1, 2)(event, context, cb)
-    expect(performer).toHaveBeenCalledWith(1, 2);
-  });
-})
