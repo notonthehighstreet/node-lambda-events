@@ -1,11 +1,32 @@
 /**
- * Lambda Events
+ * A Lambda Callback signals to AWS Lambda that the function has completed
+ * either successfully or otherwise. It can contain a result body (as a string)
+ * or throw an [Error object]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error}.
+ *
+ * @callback lambdaCallback
+ * @param {null|Error} res - The result of the function being called
+ * @param {string} [body=""] - A string response payload
+ */
+
+/**
+ * This default base class allows all extending events to inherit common
+ * functionality.
+
  * @constructor LambdaEvent
  */
 export default class {
   /**
-   * Convert a string containing two comma-separated numbers into a point.
-   * @return {Function} A Point object.
+   * A Class-wrapper, allowing any class to handle and process events
+   * in a similar manner, without making assumptions on how the function
+   * will be executed.
+   *
+   * @function {Function} wrap
+   * @memberof LambdaEvent
+   * @static
+   *
+   * @param {Class} Req - the class that will handle the lambda event
+   * @param {...*} params - Any accompanying params that will be passed into
+   *  the extending classes perform method.
    */
   static wrap(Req, ...params) {
     return (ev, ctx, fn) => { new Req(ev, ctx, fn).perform(...params); };
