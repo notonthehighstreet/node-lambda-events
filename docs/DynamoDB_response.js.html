@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: Cloudformation</title>
+    <title>JSDoc: Source: DynamoDB/response.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,126 +17,40 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: Cloudformation</h1>
+    <h1 class="page-title">Source: DynamoDB/response.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { OK } from '../../global';
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">Provides a simple interface for working with Custom Cloudformation Resource events.</div>
-        
+/**
+ * Provides a simple interface for responding to DynamoDB Lambda Events
+ *
+ * @constructor Response
+ *
+ * @module DynamoDB
+ */
+export default class {
+  constructor(cb) {
+    this.cb = cb;
+  }
 
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Cloudformation_response.js.html">Cloudformation/response.js</a>, <a href="Cloudformation_response.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+  respond(status = OK, body = '') {
+    if (status === OK) {
+      cb(null, body);
+    } else {
+      cb(new Error(`[500] ${ERROR}: "${body}"`));
+    }
+  }
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
