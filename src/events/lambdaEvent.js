@@ -17,6 +17,18 @@ import { OK } from '../global';
  * @constructor LambdaEvent
  */
 export default class {
+  /**
+   * A new instance of LambdaEvent
+   *
+   * @param {object} event - The event being received from AWS Lambda. The content of this object is
+   *  determined greatly by the stream it has originated from.
+   * @param {string} event.Records - The records being processed by this Lambda function.
+   * @param {object} context - The context of the event being received
+   *  [See here]{@link http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html}
+   * @param {lambdaCallback} cb - The callback function passed through from Lambda
+   *
+   * @see {@link http://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-ddb-update|Sample DynamoDB Event}
+   */
   constructor(event, context, cb) {
     /**
      * The raw event received by Lambda
