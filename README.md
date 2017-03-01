@@ -22,28 +22,13 @@ See below for the supported events.
 
 Provides a simple interface for working with [Custom Cloudformation Resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) events.
 
-```javascript
-import uuidV4 from 'uuid/v4';
-import { Cloudformation, OK, ERROR } from 'node-lambda-events';
+See: [Example](/docs/Cloudformation.md)
 
-class UUIDGenerator extends Cloudformation {
-  create() {
-    const id = uuidV4();
-    const data = { foo: 'bar' };
-    this.response.respond(OK, { id, data });
-  }
+### DynamoDB
 
-  update() {
-    this.create();
-  }
+Provides a simple interface for working with DynamoDB Stream events. [See example event](http://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-ddb-update)
 
-  delete() {
-    this.response.respond(OK, { id: this.id });
-  }
-}
-
-export default Cloudformation.wrap(UUIDGenerator);
-```
+See: [Example](/docs/DynamoDB.md)
 
 ## Development
 
