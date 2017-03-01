@@ -1,5 +1,3 @@
-import Promise from 'bluebird';
-
 import LambdaEvent from '../lambdaEvent';
 import { OK, ERROR } from '../../global';
 import Record from './record';
