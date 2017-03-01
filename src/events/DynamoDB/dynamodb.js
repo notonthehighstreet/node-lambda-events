@@ -3,7 +3,6 @@ import Promise from 'bluebird';
 import LambdaEvent from '../lambdaEvent';
 import { OK, ERROR } from '../../global';
 import Record from './record';
-import Response from './response';
 
 /**
  * Provides a simple interface for working with DynamoDB Stream events.
@@ -24,28 +23,13 @@ import Response from './response';
  * @tutorial DynamoDB
  */
 export default class extends LambdaEvent {
-  constructor(event, context, cb) {
-    super();
-    /**
-     * The raw event received by Lambda
-     * @member {Object} DynamoDB#event
-     */
-    this.event = event;
-    /**
-     * The map of records received by the event
-     */
-    this.records = event.Records.map(r => new Record(r));
-    /**
-     * The raw context object received by Lambda
-     * @member {Object} DynamoDB#context
-     */
-    this.context = context;
-    /**
-     * The response object allowing any extending class
-     * to respond to Cloudformation.
-     * @member {Response} DynamoDB#response
-     */
-    this.response = new Response(event, cb);
+  /**
+   * The map of records received by the event.
+   *
+   * @return {Array[Record]} array of Record objects
+   */
+  get records() {
+    return this.event.Records.map(r => new Record(r));
   }
 
   /**
@@ -78,7 +62,7 @@ export default class extends LambdaEvent {
   perform() {
     const promises = this.records.map(this.each, this);
     Promise.all(promises)
-      .then(() => { this.response.respond(OK); })
-      .catch(() => { this.response.respond(ERROR); });
+      .then(() => { this.respond(OK); })
+      .catch((err) => { this.respond(ERROR, err.toString()); });
   }
 }

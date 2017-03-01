@@ -1,5 +1,6 @@
+import { unmarshalItem } from 'dynamodb-marshaler';
+
 import { CREATE, UPDATE, DELETE } from './constants';
-import Document from './document';
 
 export default class {
   constructor(record) {
@@ -15,7 +16,7 @@ export default class {
       case 'REMOVE':
         return DELETE;
       default:
-        return undefined;
+        return this.record.StreamViewType.toLowerCase();
     }
   }
 
@@ -24,11 +25,11 @@ export default class {
   }
 
   get newDocument() {
-    return new Document(this.data.NewDocument);
+    return unmarshalItem(this.data.NewDocument);
   }
 
   get oldDocument() {
-    return new Document(this.data.OldDocument);
+    return unmarshalItem(this.data.OldDocument);
   }
 
   get data() {

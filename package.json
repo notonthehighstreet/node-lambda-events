@@ -1,7 +1,7 @@
 {
   "name": "node-lambda-events",
   "description": "Lambda event, request and response handling library",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -24,7 +24,8 @@
     "aws-sdk": "^2.6.x",
     "immutable": "~3.8",
     "joi": "^10.2.2",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "dynamodb-marshaler": "^2.0.0"
   },
   "devDependencies": {
     "aws-sdk-mock": "~1.6.1",

@@ -1,3 +1,5 @@
+import { OK } from '../global';
+
 /**
  * A Lambda Callback signals to AWS Lambda that the function has completed
  * either successfully or otherwise. It can contain a result body (as a string)
@@ -15,6 +17,25 @@
  * @constructor LambdaEvent
  */
 export default class {
+  constructor(event, context, cb) {
+    /**
+     * The raw event received by Lambda
+     * @member {Object} LambdaEvent#event
+     */
+    this.event = event;
+    /**
+     * The raw context object received by Lambda
+     * @member {Object} LambdaEvent#context
+     */
+    this.context = context;
+    /**
+     * The response object allowing any extending class
+     * to respond to Cloudformation.
+     * @member {Function} LambdaEvent#cb
+     */
+    this.cb = cb;
+  }
+
   /**
    * A Class-wrapper, allowing any class to handle and process events
    * in a similar manner, without making assumptions on how the function
@@ -30,5 +51,13 @@ export default class {
    */
   static wrap(Req, ...params) {
     return (ev, ctx, fn) => { new Req(ev, ctx, fn).perform(...params); };
+  }
+
+  respond(status = OK, body = '') {
+    if (status === OK) {
+      return this.cb(null, body);
+    } else {
+      return this.cb(new Error(`[500] "${body}"`));
+    }
   }
 }
