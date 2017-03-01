@@ -5,6 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.development
-    command: build
+    entrypoint: npm run
     volumes:
       - .:/app
