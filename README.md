@@ -18,6 +18,12 @@ Provides classes that ease the integration of receiving, handling and responding
 
 See below for the supported events.
 
+### SNS
+
+Allows you to easily handle SNS Events. [See here](http://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-sns) for an example SNS Event.
+
+See: [Example](/docs/SNS.md)
+
 ### Cloudformation
 
 Provides a simple interface for working with [Custom Cloudformation Resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) events.
