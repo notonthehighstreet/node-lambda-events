@@ -49,7 +49,7 @@ describe('SNS', () => {
 
       it('should call the callback', () => {
         const response = faker.random.word();
-        sns.response.respond(OK, response)
+        sns.respond(OK, response)
         expect(cb).toHaveBeenCalledTimes(1)
         expect(cb).toHaveBeenCalledWith(null, expect.stringMatching(response));
       })
@@ -62,7 +62,7 @@ describe('SNS', () => {
 
       it('should call the callback', () => {
         const response = faker.random.words();
-        sns.response.respond(ERROR, response)
+        sns.respond(ERROR, response)
         expect(cb).toHaveBeenCalledTimes(1)
         expect(cb).toHaveBeenCalledWith(expect.any(Error));
       })

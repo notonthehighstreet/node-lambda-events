@@ -19,11 +19,11 @@
 
     <h1 class="page-title">Source: DynamoDB/dynamodb.js</h1>
 
-    
 
 
 
-    
+
+
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import Promise from 'bluebird';
@@ -106,8 +106,8 @@ export default class extends LambdaEvent {
   perform() {
     const promises = this.records.map(this.each, this);
     Promise.all(promises)
-      .then(() => { this.response.respond(OK); })
-      .catch(() => { this.response.respond(ERROR); });
+      .then(() => { this.respond(OK); })
+      .catch(() => { this.respond(ERROR); });
   }
 }
 </code></pre>

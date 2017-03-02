@@ -1,7 +1,5 @@
 'use strict';
 
-jest.mock('../../__mocks__/request');
-
 import Joi from 'joi';
 
 import Response, { OK } from '../../../src/events/Cloudformation/response';
@@ -61,17 +59,22 @@ describe('Response', () => {
   });
 
   describe('#respond', () => {
+    afterAll(() => {
+      jest.unmock('request');
+    });
+
     const payload = {
       reason: "...",
       data: {},
       id: "1"
     };
 
-    it('is a function', () => {
-      expect(response.respond).toBeInstanceOf(Function);
-    });
-
     describe('when the payload is valid', () => {
+      beforeAll(() => {
+        let request = require('request')
+        request.__setErr(false);
+      });
+
       it('responds successfully', async () => {
         await response.respond(OK, payload);
         expect(response.cb).toHaveBeenCalledWith(null, expect.objectContaining({
@@ -84,15 +87,26 @@ describe('Response', () => {
           Status: expect.stringMatching(SUCCESS)
         }));
       });
+    });
 
-      it('responds with an error if Cloudformation is unavailable', async () => {
-        response.ResponseURL = "http://error";
+    describe('when Cloudformation responds !2XX', () => {
+      beforeAll(() => {
+        let request = require('request')
+        request.__setErr(true);
+      });
+
+      it('responds with an error', async () => {
         await response.respond(OK, payload);
         expect(response.cb).toHaveBeenCalledWith(expect.any(Error));
       });
-    });
+    })
 
     describe('when the payload is invalid', () => {
+      beforeAll(() => {
+        let request = require('request')
+        request.__setErr(true);
+      });
+      
       it('responds with error', async () => {
         let invalidPayload = Object.assign({}, payload, { id: null });
         await response.respond(OK, invalidPayload);
@@ -104,10 +118,6 @@ describe('Response', () => {
   describe('#validate', () => {
     test('it is a Function', () => {
       expect(response.validate).toBeInstanceOf(Function);
-    });
-
-    test('it returns a Promise', () => {
-      expect(response.validate({}, {})).toBeInstanceOf(Promise);
     });
 
     test('it validates successfully', () => {

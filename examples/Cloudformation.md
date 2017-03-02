@@ -10,7 +10,7 @@ class UUIDGenerator extends Cloudformation {
   create() {
     const id = uuidV4();
     const data = { foo: 'bar' };
-    this.response.respond(OK, { id, data });
+    this.respond(OK, { id, data });
   }
 
   update() {
@@ -18,7 +18,7 @@ class UUIDGenerator extends Cloudformation {
   }
 
   delete() {
-    this.response.respond(OK, { id: this.id });
+    this.respond(OK, { id: this.id });
   }
 }
 ```

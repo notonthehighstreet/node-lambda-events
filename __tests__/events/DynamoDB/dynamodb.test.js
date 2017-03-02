@@ -2,7 +2,7 @@
 
 import faker from 'faker';
 
-import DynamoDB, { wrap } from '../../../src/events/DynamoDB';
+import DynamoDB from '../../../src/events/DynamoDB';
 import Record from '../../../src/events/DynamoDB/record';
 import { OK, ERROR } from '../../../src/global';
 
@@ -49,7 +49,7 @@ describe('DynamoDB', () => {
 
       it('should call the callback', () => {
         const response = faker.random.words();
-        dynamodb.response.respond(OK, response)
+        dynamodb.respond(OK, response)
         expect(cb).toHaveBeenCalledTimes(1)
         expect(cb).toHaveBeenCalledWith(null, expect.stringMatching(response));
       })
@@ -62,7 +62,7 @@ describe('DynamoDB', () => {
 
       it('should call the callback', () => {
         const response = faker.random.words();
-        dynamodb.response.respond(ERROR, response)
+        dynamodb.respond(ERROR, response)
         expect(cb).toHaveBeenCalledTimes(1)
         expect(cb).toHaveBeenCalledWith(expect.any(Error));
       })

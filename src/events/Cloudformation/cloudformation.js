@@ -32,24 +32,8 @@ import Response from './response';
  * @tutorial Cloudformation
  */
 export default class extends LambdaEvent {
-  constructor(event, context, cb) {
-    super();
-    /**
-     * The raw event received by Lambda
-     * @member {Object} Cloudformation#event
-     */
-    this.event = event;
-    /**
-     * The raw context object received by Lambda
-     * @member {Object} Cloudformation#context
-     */
-    this.context = context;
-    /**
-     * The response object allowing any extending class
-     * to respond to Cloudformation.
-     * @member {Response} Cloudformation#response
-     */
-    this.response = new Response(event, cb);
+  respond(...args) {
+    return new Response(this.event, this.cb).respond(...args);
   }
 
   /**

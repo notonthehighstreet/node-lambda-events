@@ -7,8 +7,16 @@ class Record {
     return this.record.Sns.MessageAttributes;
   }
 
-  get payload() {
-    return JSON.parse(this.record.Sns.Message);
+  get message() {
+    return this.record.Sns.Message;
+  }
+
+  get body() {
+    return this.parse(this.message);
+  }
+
+  parse(message) {
+    return JSON.parse(message);
   }
 }
 

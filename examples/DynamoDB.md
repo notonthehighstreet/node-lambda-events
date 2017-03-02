@@ -3,7 +3,6 @@
 This example demonstrates publishing each record received to a pre-defined SNS topic.
 
 ```javascript
-import Promise from 'bluebird';
 import { DynamoDB, OK, ERROR } from 'node-lambda-events';
 
 const TOPIC = process.env.SNS_TOPIC;

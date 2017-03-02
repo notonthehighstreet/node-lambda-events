@@ -1,9 +1,6 @@
-import Promise from 'bluebird';
-
 import LambdaEvent from '../lambdaEvent';
 import { OK, ERROR } from '../../global';
 import Record from './record';
-import Response from './response';
 
 /**
  * Provides a simple interface for working with DynamoDB Stream events.
@@ -12,40 +9,16 @@ import Response from './response';
  *
  * @extends LambdaEvent
  *
- * @param {object} event - The event being received from AWS Lambda. The content of this object is
- *  determined greatly by the stream it has originated from.
- * @param {string} event.Records - The records being processed by this Lambda function.
- * @param {object} context - The context of the event being received
- *  [See here]{@link http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html}
- * @param {lambdaCallback} cb - The callback function passed through from Lambda
- *
- * @see {@link http://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-ddb-update|Sample DynamoDB Event}
- *
  * @tutorial DynamoDB
  */
 export default class extends LambdaEvent {
-  constructor(event, context, cb) {
-    super();
-    /**
-     * The raw event received by Lambda
-     * @member {Object} DynamoDB#event
-     */
-    this.event = event;
-    /**
-     * The map of records received by the event
-     */
-    this.records = event.Records.map(r => new Record(r));
-    /**
-     * The raw context object received by Lambda
-     * @member {Object} DynamoDB#context
-     */
-    this.context = context;
-    /**
-     * The response object allowing any extending class
-     * to respond to Cloudformation.
-     * @member {Response} DynamoDB#response
-     */
-    this.response = new Response(event, cb);
+  /**
+   * The map of records received by the event.
+   *
+   * @return {Array[Record]} array of Record objects
+   */
+  get records() {
+    return this.event.Records.map(r => new Record(r));
   }
 
   /**
@@ -75,10 +48,13 @@ export default class extends LambdaEvent {
    *
    * @function DynamoDB#perform
    */
-  perform() {
-    const promises = this.records.map(this.each, this);
-    Promise.all(promises)
-      .then(() => { this.response.respond(OK); })
-      .catch(() => { this.response.respond(ERROR); });
+  async perform() {
+    try {
+      const promises = this.records.map(this.each, this);
+      await Promise.all(promises);
+      this.respond(OK);
+    } catch(err) {
+      this.respond(ERROR, err.toString());
+    }
   }
 }

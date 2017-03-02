@@ -41,7 +41,7 @@ describe('Cloudformation', () => {
   });
 
   test('cb', () => {
-    expect(cfn.response.cb).toEqual(cb);
+    expect(cfn.cb).toEqual(cb);
   });
 
   describe('#perform', () => {

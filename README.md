@@ -36,6 +36,10 @@ Provides a simple interface for working with DynamoDB Stream events. [See exampl
 
 See: [Example](/docs/DynamoDB.md)
 
+### Schedule (Cloudwatch Event)
+
+Very simple interface for handling Scheduled LambdaEvents
+
 ## Development
 
 A handy [Dockerfile](/Dockerfile.development) and [docker-compose.yml](/docker-compose.yml) are provided to let you get easily setup for developing with the project.
