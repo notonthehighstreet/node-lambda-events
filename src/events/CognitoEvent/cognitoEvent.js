@@ -13,6 +13,10 @@ export default class extends LambdaEvent {
     }, {});
   }
 
+  delete(record) {
+    delete this.event.datasetRecords[record.key]
+  }
+
   get dataset() {
     return this.event.datasetName;
   }

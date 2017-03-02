@@ -40,6 +40,14 @@ See: [Example](/docs/DynamoDB.md)
 
 Very simple interface for handling Scheduled LambdaEvents
 
+### Cognito Stream
+
+Handler for Cognito Sync Streams. [See here](http://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-cognito-sync-trigger).
+
+### Cognito Event (SyncTrigger)
+
+Handler for Cognito Sync Trigger Events. [See here](https://aws.amazon.com/blogs/mobile/using-amazon-cognito-and-aws-lambda-to-detect-cheating/).
+
 ## Development
 
 A handy [Dockerfile](/Dockerfile.development) and [docker-compose.yml](/docker-compose.yml) are provided to let you get easily setup for developing with the project.
