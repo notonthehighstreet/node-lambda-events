@@ -1,7 +1,6 @@
 'use strict';
 
 import faker from 'faker';
-import mockery from 'mockery';
 
 import CognitoStream from '../../../src/events/CognitoStream';
 import Record from '../../../src/events/CognitoStream/record';
