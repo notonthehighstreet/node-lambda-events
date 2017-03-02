@@ -1,3 +1,7 @@
+# 0.1.3
+
+- Added CognitoEvent handler for validating SyncTrigger events from Cognito
+
 # 0.1.2
 
 - Added CognitoStream event, to handle Cognito sync events streamed through Kinesis
