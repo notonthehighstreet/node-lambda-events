@@ -8,7 +8,7 @@ export default class {
   }
 
   get type() {
-    switch (this.record.StreamViewType) {
+    switch (this.record.eventName) {
       case 'INSERT':
         return CREATE;
       case 'MODIFY':
@@ -16,20 +16,20 @@ export default class {
       case 'REMOVE':
         return DELETE;
       default:
-        return this.record.StreamViewType.toLowerCase();
+        return this.record.eventName.toLowerCase();
     }
   }
 
   get keys() {
-    return this.data.Keys;
+    return unmarshalItem(this.data.Keys);
   }
 
-  get newDocument() {
-    return unmarshalItem(this.data.NewDocument);
+  get newImage() {
+    return unmarshalItem(this.data.NewImage);
   }
 
-  get oldDocument() {
-    return unmarshalItem(this.data.OldDocument);
+  get oldImage() {
+    return unmarshalItem(this.data.OldImage);
   }
 
   get data() {

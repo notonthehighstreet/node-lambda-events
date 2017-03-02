@@ -48,10 +48,13 @@ export default class extends LambdaEvent {
    *
    * @function DynamoDB#perform
    */
-  perform() {
-    const promises = this.records.map(this.each, this);
-    Promise.all(promises)
-      .then(() => { this.respond(OK); })
-      .catch((err) => { this.respond(ERROR, err.toString()); });
+  async perform() {
+    try {
+      const promises = this.records.map(this.each, this);
+      await Promise.all(promises);
+      this.respond(OK);
+    } catch(err) {
+      this.respond(ERROR, err.toString());
+    }
   }
 }

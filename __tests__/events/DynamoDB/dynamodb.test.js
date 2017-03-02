@@ -2,7 +2,7 @@
 
 import faker from 'faker';
 
-import DynamoDB, { wrap } from '../../../src/events/DynamoDB';
+import DynamoDB from '../../../src/events/DynamoDB';
 import Record from '../../../src/events/DynamoDB/record';
 import { OK, ERROR } from '../../../src/global';
 

@@ -46,7 +46,7 @@ class Response {
     };
     return new Promise((resolve, reject) => {
       request(payload, (err, resp, body) => {
-        return err ? reject(body) : resolve(body);
+        return err ? reject(err) : resolve(body);
       })
     });
   }

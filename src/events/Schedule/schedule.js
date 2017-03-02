@@ -10,7 +10,4 @@ import { OK, ERROR } from '../../global';
  *
  */
 export default class extends LambdaEvent {
-  perform() {
-    throw new Error('missing #perform implementation');
-  }
 }

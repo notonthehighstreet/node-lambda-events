@@ -65,6 +65,10 @@ export default class {
     return (ev, ctx, fn) => { new Req(ev, ctx, fn).perform(...params); };
   }
 
+  perform() {
+    throw new Error('missing #perform implementation');
+  }
+
   respond(status = OK, body = '') {
     if (status === OK) {
       return this.cb(null, body);

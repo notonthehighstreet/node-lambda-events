@@ -16,10 +16,13 @@ export default class extends LambdaEvent {
     throw new Error('missing #each implementation');
   }
 
-  perform() {
-    const promises = this.records.map(this.each, this);
-    Promise.all(promises)
-      .then(() => { this.response.respond(OK); })
-      .catch(() => { this.response.respond(ERROR); });
+  async perform() {
+    try {
+      const promises = this.records.map(this.each, this);
+      await Promise.all(promises);
+      this.respond(OK);
+    } catch(err) {
+      this.respond(ERROR);
+    }
   }
 }

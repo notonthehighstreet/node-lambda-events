@@ -3,12 +3,14 @@ import Cloudformation from './events/Cloudformation';
 import SNS from './events/SNS';
 import Schedule from './events/Schedule';
 import DynamoDB from './events/DynamoDB';
+import CognitoStream from './events/CognitoStream';
 
 export {
   OK,
   ERROR,
   SNS,
-  Schedule
+  Schedule,
   Cloudformation,
+  CognitoStream,
   DynamoDB,
 };
