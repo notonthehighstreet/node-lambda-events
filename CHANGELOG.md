@@ -1,3 +1,7 @@
+# 0.1.4
+
+- Minor bug with CognitoEvent not being included properly
+
 # 0.1.3
 
 - Added CognitoEvent handler for validating SyncTrigger events from Cognito
