@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: Cloudformation</title>
+    <title>JSDoc: Tutorial: DynamoDB</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,129 +17,46 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: Cloudformation</h1>
+    <h1 class="page-title">Tutorial: DynamoDB</h1>
 
-    
-
-
-
-
-<section>
+    <section>
 
 <header>
     
-        
-            
-        
-    
+
+    <h2>DynamoDB</h2>
 </header>
 
 <article>
-    <div class="container-overview">
-    
-        
-            <div class="description">Provides a simple interface for working with Custom Cloudformation Resource events.</div>
-        
+    <h3>DynamoDB Record Publisher</h3><p>This example demonstrates publishing each record received to a pre-defined SNS topic.</p>
+<pre class="prettyprint source lang-javascript"><code>import { DynamoDB, OK, ERROR } from 'node-lambda-events';
 
-        
-            
+const TOPIC = process.env.SNS_TOPIC;
+const REGION = process.env.AWS_REGION;
 
+const PUBLISH = 'publish';
 
+class SNSPublisher extends DynamoDB {
+  each(record) {
+    return this.sns(PUBLISH, {
+      TopicArn: TOPIC,
+      Message: JSON.stringify(record.newDocument.data);
+    });
+  }
 
+  sns(op, params) {
+    return Promise.fromCallback(cb => this.client[op](params));
+  }
 
+  get client() {
+    return new AWS.SNS({ region: REGION });
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Cloudformation_response.js.html">Cloudformation/response.js</a>, <a href="Cloudformation_response.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
+export default DynamoDB.wrap(SNSPublisher);</code></pre>
 </article>
 
 </section>
-
-
-
 
 </div>
 

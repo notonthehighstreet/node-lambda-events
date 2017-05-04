@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: LambdaEvent</title>
+    <title>JSDoc: Class: Schedule</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: LambdaEvent</h1>
+    <h1 class="page-title">Class: Schedule</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2>LambdaEvent</h2>
+        <h2>Schedule</h2>
         
     
 </header>
@@ -40,15 +40,14 @@
 
     
 
-    <h4 class="name" id="LambdaEvent"><span class="type-signature"></span>new LambdaEvent<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Schedule"><span class="type-signature"></span>new Schedule<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    This default base class allows all extending events to inherit common
-functionality.
+    Very simple interface for handling Scheduled LambdaEvents
 </div>
 
 
@@ -92,7 +91,7 @@ functionality.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lambdaEvent.js.html">lambdaEvent.js</a>, <a href="lambdaEvent.js.html#line13">line 13</a>
+        <a href="Schedule_schedule.js.html">Schedule/schedule.js</a>, <a href="Schedule_schedule.js.html#line4">line 4</a>
     </li></ul></dd>
     
 
@@ -120,6 +119,17 @@ functionality.
 
     
     </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="LambdaEvent.html">LambdaEvent</a></li>
+    </ul>
+
 
     
 
@@ -168,6 +178,11 @@ to respond to Cloudformation.
 
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="LambdaEvent.html#cb">LambdaEvent#cb</a>
+    </li></ul></dd>
     
 
     
@@ -241,6 +256,11 @@ to respond to Cloudformation.
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="LambdaEvent.html#context">LambdaEvent#context</a>
+    </li></ul></dd>
+    
 
     
 
@@ -313,6 +333,11 @@ to respond to Cloudformation.
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="LambdaEvent.html#event">LambdaEvent#event</a>
+    </li></ul></dd>
+    
 
     
 
@@ -354,187 +379,6 @@ to respond to Cloudformation.
         
     
 
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id=".%7BFunction%7Dwrap"><span class="type-signature">(static) </span>{Function} wrap<span class="signature">(Req, &hellip;params)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    A Class-wrapper, allowing any class to handle and process events
-in a similar manner, without making assumptions on how the function
-will be executed.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>Req</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Class</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">the class that will handle the lambda event</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>params</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                    &lt;repeatable><br>
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Any accompanying params that will be passed into
- the extending classes perform method.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lambdaEvent.js.html">lambdaEvent.js</a>, <a href="lambdaEvent.js.html#line51">line 51</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     
 
     

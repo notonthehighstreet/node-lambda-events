@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: Cloudformation</title>
+    <title>JSDoc: Tutorial: S3</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,129 +17,51 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: Cloudformation</h1>
+    <h1 class="page-title">Tutorial: S3</h1>
 
-    
-
-
-
-
-<section>
+    <section>
 
 <header>
     
-        
-            
-        
-    
+
+    <h2>S3</h2>
 </header>
 
 <article>
-    <div class="container-overview">
-    
-        
-            <div class="description">Provides a simple interface for working with Custom Cloudformation Resource events.</div>
-        
+    <h3>Simple S3 Example</h3><p>The below example demonstrates the processing of an S3 event.</p>
+<pre class="prettyprint source lang-javascript"><code>import { S3 } from 'node-lambda-events';
+import AWS from 'aws-sdk';
 
-        
-            
+const REGION = process.env.AWS_REGION;
 
+class S3EventReceiver extends S3 {
+  async each(record) {
+    const { Body } = await this.fetch();
+    return this.push(Body);
+  }
 
+  fetch() {
+    return new Promise((resolve, reject) => {
+      const s3 = new AWS.S3({ region: REGION });
+      s3.getObject(this.location, (err, data) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(data);
+        }
+      });
+    })
+  }
 
+  push(data) {
+    // DO SOMETHING!
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Cloudformation_response.js.html">Cloudformation/response.js</a>, <a href="Cloudformation_response.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
+export default S3.wrap(S3EventReceiver);</code></pre>
 </article>
 
 </section>
-
-
-
 
 </div>
 

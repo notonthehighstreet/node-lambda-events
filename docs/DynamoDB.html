@@ -40,7 +40,7 @@
 
     
 
-    <h4 class="name" id="DynamoDB"><span class="type-signature"></span>new DynamoDB<span class="signature">(event, context, cb)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="DynamoDB"><span class="type-signature"></span>new DynamoDB<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
@@ -56,152 +56,6 @@
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The event being received from AWS Lambda. The content of this object is
- determined greatly by the stream it has originated from.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>Records</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The records being processed by this Lambda function.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The context of the event being received
- <a href="http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html">See here</a></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>cb</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#lambdaCallback">lambdaCallback</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The callback function passed through from Lambda</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -237,7 +91,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DynamoDB_dynamodb.js.html">DynamoDB/dynamodb.js</a>, <a href="DynamoDB_dynamodb.js.html#line8">line 8</a>
+        <a href="DynamoDB_dynamodb.js.html">DynamoDB/dynamodb.js</a>, <a href="DynamoDB_dynamodb.js.html#line5">line 5</a>
     </li></ul></dd>
     
 
@@ -245,18 +99,11 @@
     <dt class="tag-tutorial">Tutorials:</dt>
     <dd class="tag-tutorial">
         <ul>
-            <li><em class="disabled">Tutorial: DynamoDB</em></li>
+            <li><a href="tutorial-DynamoDB_.html">DynamoDB</a></li>
         </ul>
     </dd>
     
 
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="http://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-ddb-update">Sample DynamoDB Event</a></li>
-        </ul>
-    </dd>
     
 
     
@@ -306,6 +153,84 @@
 
         
             
+<h4 class="name" id="cb"><span class="type-signature"></span>cb<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    The response object allowing any extending class
+to respond to Cloudformation.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="LambdaEvent.html#cb">LambdaEvent#cb</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lambdaEvent.js.html">lambdaEvent.js</a>, <a href="lambdaEvent.js.html#line43">line 43</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="context"><span class="type-signature"></span>context<span class="type-signature"> :Object</span></h4>
 
 
@@ -338,6 +263,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="LambdaEvent.html#context">LambdaEvent#context</a>
+    </li></ul></dd>
+    
 
     
 
@@ -360,7 +290,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DynamoDB_dynamodb.js.html">DynamoDB/dynamodb.js</a>, <a href="DynamoDB_dynamodb.js.html#line38">line 38</a>
+        <a href="lambdaEvent.js.html">lambdaEvent.js</a>, <a href="lambdaEvent.js.html#line38">line 38</a>
     </li></ul></dd>
     
 
@@ -410,29 +340,9 @@
     
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DynamoDB_dynamodb.js.html">DynamoDB/dynamodb.js</a>, <a href="DynamoDB_dynamodb.js.html#line29">line 29</a>
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="LambdaEvent.html#event">LambdaEvent#event</a>
     </li></ul></dd>
     
 
@@ -441,54 +351,6 @@
     
 
     
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="response"><span class="type-signature"></span>response<span class="type-signature"> :Response</span></h4>
-
-
-
-
-<div class="description">
-    The response object allowing any extending class
-to respond to Cloudformation.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Response</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
     
 
@@ -505,7 +367,7 @@ to respond to Cloudformation.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DynamoDB_dynamodb.js.html">DynamoDB/dynamodb.js</a>, <a href="DynamoDB_dynamodb.js.html#line43">line 43</a>
+        <a href="lambdaEvent.js.html">lambdaEvent.js</a>, <a href="lambdaEvent.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -591,7 +453,7 @@ idempotent.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="DynamoDB_dynamodb.js.html">DynamoDB/dynamodb.js</a>, <a href="DynamoDB_dynamodb.js.html#line63">line 63</a>
+        <a href="DynamoDB_dynamodb.js.html">DynamoDB/dynamodb.js</a>, <a href="DynamoDB_dynamodb.js.html#line36">line 36</a>
     </li></ul></dd>
     
 
@@ -633,13 +495,13 @@ idempotent.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Cloudformation.html">Cloudformation</a></li><li><a href="module-DynamoDB.html">DynamoDB</a></li></ul><h3>Classes</h3><ul><li><a href="Cloudformation.html">Cloudformation</a></li><li><a href="DynamoDB.html">DynamoDB</a></li><li><a href="LambdaEvent.html">LambdaEvent</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-Cloudformation_.html">Cloudformation</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Cloudformation.html">Cloudformation</a></li></ul><h3>Classes</h3><ul><li><a href="Cloudformation.html">Cloudformation</a></li><li><a href="DynamoDB.html">DynamoDB</a></li><li><a href="LambdaEvent.html">LambdaEvent</a></li><li><a href="Schedule.html">Schedule</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-Cloudformation_.html">Cloudformation</a></li><li><a href="tutorial-CognitoEvent.html">CognitoEvent</a></li><li><a href="tutorial-DynamoDB_.html">DynamoDB</a></li><li><a href="tutorial-S3.html">S3</a></li><li><a href="tutorial-SNS.html">SNS</a></li></ul><h3>Global</h3><ul><li><a href="global.html#get">get</a></li><li><a href="global.html#value">value</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Feb 24 2017 12:32:34 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu May 04 2017 11:18:27 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>

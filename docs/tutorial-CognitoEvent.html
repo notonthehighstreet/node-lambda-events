@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: Cloudformation</title>
+    <title>JSDoc: Tutorial: CognitoEvent</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,129 +17,32 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: Cloudformation</h1>
+    <h1 class="page-title">Tutorial: CognitoEvent</h1>
 
-    
-
-
-
-
-<section>
+    <section>
 
 <header>
     
-        
-            
-        
-    
+
+    <h2>CognitoEvent</h2>
 </header>
 
 <article>
-    <div class="container-overview">
-    
-        
-            <div class="description">Provides a simple interface for working with Custom Cloudformation Resource events.</div>
-        
+    <h3>Anti-Cheating Cognito Event Handler</h3><p>This example is based off <a href="https://aws.amazon.com/blogs/mobile/using-amazon-cognito-and-aws-lambda-to-detect-cheating/">the one documented here</a>.</p>
+<pre class="prettyprint source lang-javascript"><code>import { CognitoEvent, OK, ERROR } from 'node-lambda-events';
 
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Cloudformation_response.js.html">Cloudformation/response.js</a>, <a href="Cloudformation_response.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
+class ScoreKeyValidator extends Cloudformation {
+  perform() {
+    const { scoreKey } = this.records;
+    if(scoreKey && scoreKey.newValue > 2112) {
+      this.delete(scoreKey);
+    }
+    this.respond(OK, this.event);
+  }
+}</code></pre>
 </article>
 
 </section>
-
-
-
 
 </div>
 
