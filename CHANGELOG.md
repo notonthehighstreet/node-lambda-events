@@ -1,3 +1,7 @@
+# 0.1.6
+
+- Added S3 Event handling
+
 # 0.1.4
 
 - Minor bug with CognitoEvent not being included properly

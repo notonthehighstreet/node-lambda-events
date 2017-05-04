@@ -1,0 +1,7 @@
+{
+  "name": "s3",
+  "description": "",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./s3.js"
+}

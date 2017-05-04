@@ -24,6 +24,12 @@ Allows you to easily handle SNS Events. [See here](http://docs.aws.amazon.com/la
 
 See: [Example](/docs/SNS.md)
 
+### S3
+
+Provides an easy-to-use interface for handling S3 events. Additionally, it helps you to easily retrieve the object that the event is for. [See here](http://docs.aws.amazon.com/lambda/latest/dg/eventsources.html#eventsources-s3-put) for an example S3:Put Event.
+
+See: [Example](/docs/S3.md)
+
 ### Cloudformation
 
 Provides a simple interface for working with [Custom Cloudformation Resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources.html) events.
