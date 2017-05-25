@@ -54,6 +54,10 @@ Handler for Cognito Sync Streams. [See here](http://docs.aws.amazon.com/lambda/l
 
 Handler for Cognito Sync Trigger Events. [See here](https://aws.amazon.com/blogs/mobile/using-amazon-cognito-and-aws-lambda-to-detect-cheating/).
 
+### Lex Event
+
+Handler for Amazon Lex text processing events. [See here](http://docs.aws.amazon.com/lex/latest/dg/lambda-input-response-format.html#lambda-response-dialogAction).
+
 ## Development
 
 A handy [Dockerfile](/Dockerfile.development) and [docker-compose.yml](/docker-compose.yml) are provided to let you get easily setup for developing with the project.
