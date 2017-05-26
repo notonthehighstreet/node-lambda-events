@@ -12,7 +12,7 @@ import { Schema } from './schema';
  */
 class Response {
   constructor({ sessionAttributes }, cb) {
-    this.sessionAttributes = sessionAttributes;
+    this.sessionAttributes = sessionAttributes || {}; 
     this.cb = cb;
   }
 

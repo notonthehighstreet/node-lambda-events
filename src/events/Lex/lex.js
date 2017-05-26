@@ -22,7 +22,7 @@ export default class extends LambdaEvent {
   }
 
   get session() {
-    return this.event.sessionAttributes;
+    return this.event.sessionAttributes || {};
   }
 
   get mode() {
