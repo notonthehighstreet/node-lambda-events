@@ -12,15 +12,15 @@ import { Schema } from './schema';
  */
 class Response {
   constructor({ sessionAttributes }, cb) {
-    this.sessionAttribtues = sessionAttributes;
+    this.sessionAttributes = sessionAttributes;
     this.cb = cb;
   }
 
   async respond(...args) {
     try {
       const body = this.payload(...args);
-      const { validated } = await this.validate(body);
-      return this.cb(null, body);
+      const values = await this.validate(body);
+      return this.cb(null, values);
     } catch (err) {
       return this.cb(new Error(err.toString()));
     }
@@ -34,12 +34,19 @@ class Response {
     })
   }
 
-  payload(status = OK, dialogAction, attrs = {}) {
-    const sessionAttributes = Object.assign(this.sessionAttributes, attrs);
+  payload(status = OK, dialogAction = {}, attrs = {}) {
+    let { sessionAttributes } = this;
+    sessionAttributes = Object.assign(this.sessionAttributes, attrs);
     if (status !== OK) {
-      return { sessionAttributes, dialogAction: this.error };
+      return {
+        sessionAttributes,
+        dialogAction: this.error,
+      };
     } else {
-      return { sessionAttributes, dialogAction };
+      return {
+        sessionAttributes,
+        dialogAction,
+      };
     }
   }
 
@@ -47,6 +54,9 @@ class Response {
     return {
       type: 'Close',
       fulfillmentState: 'Failed',
+      message: {
+        content: 'Sorry! There was an internal error.'
+      }
     }
   }
 }

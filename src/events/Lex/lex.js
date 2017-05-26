@@ -1,9 +1,14 @@
 import LambdaEvent from '../lambdaEvent';
 import { OK, ERROR } from '../../global';
-import Record from './record';
 import Response from './response';
 
+import { FULFILLMENT, DIALOG } from './constants';
+
 export default class extends LambdaEvent {
+  get intentName() {
+    return this.intent.name;
+  }
+
   get intent() {
     return this.event.currentIntent;
   }
@@ -23,6 +28,11 @@ export default class extends LambdaEvent {
   get mode() {
     // Text or Voice
     return this.event.outputDialogMode;
+  }
+
+  get type() {
+    // dialog or fulfillment
+    return this.event.invocationSource;
   }
 
   perform() {

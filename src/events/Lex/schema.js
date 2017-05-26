@@ -34,12 +34,12 @@ export const Schema = Joi.object().keys({
     }),
 
     message: Joi.object().keys({
-      contentType: Joi.string().valid('PlainText', 'SSML').required(),
+      contentType: Joi.string().default('PlainText').valid('PlainText', 'SSML'),
       content: Joi.string().required(),
     }),
 
     responseCard: Joi.object().keys({
-      version: Joi.number().minimum(0),
+      version: Joi.number().min(0),
       contentType: Joi.string().valid("application/vnd.amazonaws.card.generic"),
       genericAttachments: Joi.array().items(
         Joi.object().keys({
@@ -57,5 +57,5 @@ export const Schema = Joi.object().keys({
       )
     }),
 
-  }).required(),
+  }).requiredKeys('type').required(),
 });
