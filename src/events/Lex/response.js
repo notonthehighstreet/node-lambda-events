@@ -55,8 +55,8 @@ class Response {
       type: 'Close',
       fulfillmentState: 'Failed',
       message: {
-        content: 'Sorry! There was an internal error.'
-      }
+        content: 'Sorry! There was an internal error.',
+      },
     }
   }
 }

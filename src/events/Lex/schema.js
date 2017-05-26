@@ -54,7 +54,7 @@ export const Schema = Joi.object().keys({
             })
           ),
         })
-      )
+      ),
     }),
 
   }).requiredKeys('type').required(),
