@@ -25,11 +25,11 @@ export default class {
   }
 
   get newImage() {
-    return unmarshalItem(this.data.NewImage);
+    return unmarshalItem(this.data.NewImage || {});
   }
 
   get oldImage() {
-    return unmarshalItem(this.data.OldImage);
+    return unmarshalItem(this.data.OldImage || {});
   }
 
   get data() {

@@ -95,6 +95,13 @@ describe('DynamoDB.Record', () => {
   });
 
   describe('#newImage', () => {
+    describe('when unset', () => {
+      fit('should return an empty object', () => {
+        const rec = new Record({ dynamodb: { NewImage: null } });
+        expect(rec.newImage).toBeInstanceOf(Object);
+      })
+    });
+
     it('should be an object', () => {
       expect(record.newImage).toBeInstanceOf(Object);
     })
@@ -105,6 +112,13 @@ describe('DynamoDB.Record', () => {
   });
 
   describe('#oldImage', () => {
+    describe('when unset', () => {
+      fit('should return an empty object', () => {
+        const rec = new Record({ dynamodb: { OewImage: null } });
+        expect(rec.oldImage).toBeInstanceOf(Object);
+      })
+    });
+
     it('should be an object', () => {
       expect(record.oldImage).toBeInstanceOf(Object);
     })

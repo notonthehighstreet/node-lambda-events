@@ -1,3 +1,8 @@
+# 0.1.12
+
+- Added Lex Event Handling
+- Improved handling for empty oldImage and newImage in DynamoDB event handler
+
 # 0.1.6
 
 - Added S3 Event handling
